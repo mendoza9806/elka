@@ -1,0 +1,416 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Máquinas Eléctricas</title>
+        <link class="icon" rel="icon" href="./static/icon.png">
+    </head>
+  <style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('instalaciones') }}" class="a">Instalaciones Eléctricas</a>
+            <a href="{{ url_for('automatismo') }}" class="a">Automatismos</a>
+            <a href="{{ url_for('luminotecnia') }}" class="a">Luminotecnia</a>
+            <a href="{{ url_for('electrotecnia') }}" class="a">Electrotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+          <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+
+
+</header>
+
+<div></div><center><div class="div"><p><h1>Máquinas Eléctricas</h1></p></div></center></div>
+
+
+<div class="div">
+<h2>¿Qué son las máquinas eléctricas?</h2>
+<P>Una máquina eléctrica es un dispositivo capaz de transformar cualquier forma de energía en energía eléctrica o a la inversa y también se incluyen en esta definición las máquinas que transforman la electricidad en la misma forma de energía pero con una presentación distinta más conveniente a su transporte o utilización. Se clasifican en tres grandes grupos: generadores, motores y transformadores.
+<P>
+    Los generadores transforman energía mecánica en eléctrica, mientras que los motores transforman la energía eléctrica en mecánica haciendo girar un eje. El motor se puede clasificar en motor de corriente continua o motor de corriente alterna. Los transformadores y convertidores conservan la forma de la energía pero transforman sus características.
+</P>
+<P>
+    Una máquina eléctrica tiene un circuito magnético y dos circuitos eléctricos; habitualmente, uno de los circuitos eléctricos se llama excitación, porque al ser recorrido por una corriente eléctrica, produce los amperivueltas necesarios para crear el flujo establecido en el conjunto de la máquina.
+</P>
+<P>
+    Desde una visión mecánica, las máquinas eléctricas se pueden clasificar en rotativas y estáticas. Las máquinas rotativas están provistas de partes giratorias, como las dinamos, alternadores, motores. Las máquinas estáticas no disponen de partes móviles, como los transformadores.
+</P>
+<P>
+    En las máquinas rotativas, hay una parte fija llamada estator o estátor y una parte móvil llamada rotor. El rotor suele girar en el interior del estator. Al espacio de aire existente entre ambos se le denomina entrehierro. Los motores y generadores eléctricos son el ejemplo más simple de una máquina rotativa.
+</P>
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Transformadores</h1></p></div></center></div>
+
+<div class="div">
+<h2>Transformador Eléctrico</h2>
+<P>Se denomina transformador a un elemento eléctrico que permite aumentar o disminuir la tensión en un circuito eléctrico de corriente alterna, manteniendo la potencia. La potencia que ingresa al equipo, en el caso de un transformador ideal (esto es, sin pérdidas), es igual a la que se obtiene a la salida.
+<img class="imagendediv"  src="{{ url_for('static', filename='transformador-electrico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Transformador Monofásico</h2>
+<P>Transformador eléctrico monofásico de núcleo cerrado de acero al silicio, donde se muestran dos devanados o enrollados de alambre de cobre desnudo, protegido con barniz aislante. Uno de esos corresponde al “enrollado primario” o de ENTRADA de la corriente alterna y el otro al “enrollado secundario” o de SALIDA de la propia corriente, una vez que el valor de la tensión ha sido aumentado o disminuido, de acuerdo con el tipo de transformador que se utilice, decir, si es “reductor de tensión” o si, por el contrario, es “elevador de tensión”.
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Transformador Trifásico</h2>
+<P>Se denomina transformador a un elemento eléctrico que permite aumentar o disminuir la tensión en un circuito eléctrico de corriente alterna, manteniendo la potencia. La potencia que ingresa al equipo, en el caso de un transformador ideal (esto es, sin pérdidas), es igual a la que se obtiene a la salida. Las máquinas reales presentan un pequeño porcentaje de pérdidas, dependiendo de su diseño y tamaño, entre otros factores.
+<P>
+    El transformador es un dispositivo que convierte la energía eléctrica alterna de un cierto nivel de tensión, en energía alterna de otro nivel de tensión, basándose en el fenómeno de la inducción electromagnética.
+    Está constituido por dos bobinas de material conductor, devanadas sobre un núcleo cerrado de material ferromagnético, pero aisladas entre sí eléctricamente.
+    La única conexión entre las bobinas la constituye el flujo magnético común que se establece en el núcleo. El núcleo, generalmente, es fabricado bien sea de hierro o de láminas apiladas de acero eléctrico, aleación apropiada para optimizar el flujo magnético.
+    Las bobinas o devanados se denominan primario y secundario según correspondan a la entrada o salida del sistema en cuestión, respectivamente. También existen transformadores con más devanados; en este caso, puede existir un devanado "terciario", de menor tensión que el secundario.
+
+</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='trans-trifasico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Motores</h1></p></div></center></div>
+
+<div class="div">
+<h2>Motor Eléctrico</h2>
+<P>El motor eléctrico es un dispositivo que convierte la energía eléctrica en energía mecánica de rotación por medio de la acción de los campos magnéticos generados en sus bobinas. Son máquinas eléctricas rotatorias compuestas por un estator y un rotor.
+<P>
+    Algunos de los motores eléctricos son reversibles, ya que pueden convertir energía mecánica en energía eléctrica funcionando como generadores o dinamo. Los motores eléctricos de tracción usados en locomotoras o en automóviles híbridos realizan a menudo ambas tareas, si se diseñan adecuadamente.
+</P>
+<P>
+    Son utilizados en infinidad de sectores tales como instalaciones industriales, comerciales y particulares. Su uso está generalizado en ventiladores, vibradores para teléfonos móviles, bombas, medios de transporte eléctricos, electrodomésticos, esmeriles angulares y otras herramientas eléctricas, unidades de disco, etc. Los motores eléctricos pueden ser impulsados por fuentes de corriente continua (CC), y por fuentes de corriente alterna (CA).
+</P>
+<P>
+    La corriente directa o corriente continua proviene de las baterías, los paneles solares, dínamos, fuentes de alimentación instaladas en el interior de los aparatos que operan con estos motores y con rectificadores. La corriente alterna puede tomarse para su uso en motores eléctricos bien sea directamente de la red eléctrica, alternadores de las plantas eléctricas de emergencia y otras fuentes de corriente alterna bifásica o trifásica como los inversores de potencia.
+</P>
+
+<img class="imagendediv"  src="{{ url_for('static', filename='motor-electrico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Motor monofásico de fase partida</h2>
+<P>El motor de fase partida es uno de los distintos sistemas ideados para el arranque de los motores asíncronos monofásicos. Se basa en cambiar, al menos durante el arranque, el motor monofásico por un bifásico (que puede arrancar sólo). El motor dispone de dos devanados, el principal y el auxiliar; además, lleva incorporado un interruptor centrífugo cuya función es la de desconectar el devanado auxiliar después del arranque del motor.
+Además del motor de fase partida existen otros sistemas para arrancar motores monofásicos como es el caso de motores de arranque por condensador.
+<P>
+    La necesidad del motor de inducción monofásico de fase partida se explica de la siguiente forma: existen muchas instalaciones, tanto industriales como residenciales a las que la compañía eléctrica solo suministra un servicio de c.a monofásico. Además, en todo lugar casi siempre hay necesidad de motores pequeños que trabajen con suministro monofásico para impulsar diversos artefactos electrodomésticos, fundamentalmente refrigeradores.
+    En estos no se emplean los interruptores centrífugos, sino interruptores electromagnéticos, que disponen de una bobina conectada en serie con el bobinado principal. En el arranque, la intensidad de corriente en este es muy alta y el interruptor electromagnético cierra un contacto que conecta el bobinado de arranque o auxiliar. A medida que va alcanzando velocidad va disminuyendo la intensidad, hasta que la bobina del interruptor deja de mantener
+    cerrado el contacto y se desconecta el bobinado de arranque. Otra manera de hacer esta función es empleando una resistencia PTC en serie con el bobinado de arranque. En el momento de conectar el motor la resistencia está fría y su valor es bajo, circulando una intensidad elevada por el bobinado de arranque. Esta corriente va calentando la resistencia, por lo que su valor va aumentando considerablemente, produciendo una disminución de la intensidad hasta hacerse muy pequeña.
+</P>
+<P>
+    La mayoría de los motores monofásicos de fase partida son motores pequeños cuya potencias son fracciones de caballo de vapor. Tanto para 115 V como para 230 V en servicio monofásico. Los motores monofásicos de inducción de fase partida experimentan una grave desventaja. Puesto que solo hay una fase en el devanado del estator, el campo magnético en un motor monofásico de inducción no rota. En su lugar, primero pulsa con gran intensidad,
+    luego con menos intensidad, pero permanece siempre en la misma dirección. Puesto que no hay campo magnético rotacional en el estator, un motor monofásico de inducción no tiene par de arranque. Es por ello que se conecta en paralelo una bobina de arranque.
+    Para así poder crear un campo giratorio y de esta manera tener un torque de arranque, la bobina de arranque es desconectada por medio de un interruptor centrífugo.
+</P>
+
+<img class="imagendediv"  src="{{ url_for('static', filename='fase-partida.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Motor trifásico</h2>
+<P>Es una máquina eléctrica rotativa, capaz de convertir la energía eléctrica trifásica suministrada, en energía mecánica. La energía eléctrica trifásica origina campos magnéticos rotativos en el bobinado del estator lo que provoca que el arranque de estos motores no necesite circuito auxiliar, son más pequeños y livianos que uno monofásico de inducción de la misma potencia, debido a esto su fabricación representa un costo menor.
+<P>
+    Los motores eléctricos trifásicos, se fabrican en las mas diversas potencias, desde una fracción de caballo hasta varios miles de caballos de fuerza (HP), se los construye para prácticamente, todas las tensiones y frecuencias (50 y 60 Hz) normalizadas y muy a menudo, están equipados para trabajar a dos tensiones nominales distintas.
+
+</P>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Motor asíncrono</h2>
+<P>El motor asíncrono, motor asincrónico o motor de inducción es un motor eléctrico de corriente alterna, en el cual su rotor gira a una velocidad diferente a la del campo magnético del estator.
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Motor síncrono</h2>
+<P>Los motores síncronos son un tipo de motor de corriente alterna en el que la rotación del eje está sincronizada con la frecuencia de la corriente de alimentación; el período de rotación es exactamente igual a un número entero de ciclos de CA.
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Generadores</h1></p></div></center></div>
+
+<div class="div">
+<h2>Generador eléctrico de corriente alterna</h2>
+<P>El generador de corriente alterna es un dispositivo que convierte la energía mecánica en energía eléctrica. El generador más simple consta de una espira rectangular que gira en un campo magnético uniforme.
+<P>
+    El movimiento de rotación de las espiras es producido por el movimiento de una turbina accionada por una corriente de agua en una central hidroeléctrica, o por un chorro de vapor en una central térmica. En el primer caso, una parte de la energía potencial agua embalsada se transforma en energía eléctrica; en el segundo caso, una parte de la energía química se transforma en energía eléctrica al quemar carbón u otro combustible fósil.
+</P>
+<p>
+    Cuando la espira gira, el flujo del campo magnético a través de la espira cambia con el tiempo. Se produce una fem. Los extremos de la espira se conectan a dos anillos que giran con la espira. Las conexiones al circuito externo se hacen mediante escobillas estacionarias en contacto con los anillos.
+
+
+</p>
+
+<img class="imagendediv"  src="{{ url_for('static', filename='generador-ca.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Dínamo</h2>
+<P>Una dinamo o dínamo es un generador eléctrico destinado a la transformación de flujo magnético en electricidad mediante el fenómeno de la inducción electromagnética, generando una corriente continua.
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Conexiones</h1></p></div></center></div>
+
+<div class="div">
+<h2>Conexión estrella</h2>
+<P>La conexión en estrella se designa por la letra Y. Se consigue uniendo los terminales negativos de las tres bobinas en un punto común, que denominamos neutro y que normalmente se conecta a tierra. Los terminales positivos se conectan a las fases.
+<img class="imagendediv"  src="{{ url_for('static', filename='estrella.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+<div class="div">
+<h2>Conexión delta o triángulo</h2>
+<P>Este tipo de conexión se realiza uniendo el final de una bobina con el principio de la siguiente, hasta cerrar la conexión formando un triángulo. Es una conexión sin neutro. Las fases salen de los vértices del triángulo. También se denomina conexión delta (Δ).
+<img class="imagendediv"  src="{{ url_for('static', filename='delta.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

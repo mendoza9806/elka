@@ -1,0 +1,463 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Electrotecnia</title>
+        <link class="icon" rel="icon" href="./static/icon.png">
+    </head>
+    <style type= "text/css">
+   /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('instalaciones') }}" class="a">Instalaciones Eléctricas</a>
+            <a href="{{ url_for('maquinas') }}" class="a">Máquinas Eléctricas</a>
+            <a href="{{ url_for('automatismo') }}" class="a">Automatismos</a>
+            <a href="{{ url_for('luminotecnia') }}" class="a">Luminotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+           <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+
+
+
+</header>
+
+<div></div><center><div class="div"><p><h1>Electrotecnia</h1></p></div></center></div>
+
+
+<div></div><center><div class="div"><p><h2>¿Qué es Electrotecnia?</h2></p></div></center></div>
+
+
+<div class="div">
+
+<P>La electrotecnia es la ciencia encargada de estudiar la aplicación técnica de la electricidad así como del magnetismo.</P>
+
+<P>El origen del término electrotecnia viene de electro y techne, es decir, la tecnología en la electricidad.</P>
+
+El concepto pues abarca un amplio abanico de campos, entre los que se incluyen los sistemas de iluminación, motores eléctricos, robótica y contactos eléctricos.
+
+
+
+</P>
+</div>
+
+<div class="div">
+<h2>MAGNITUDES ELÉCTRICAS BÁSICAS</h2>
+<P>En electricidad existen muchas magnitudes (aquello que es posible medir), sin embargo, se puede
+decir que las básicas son cuatro, entre ellas se tienen la tensión eléctrica o voltaje, la corriente
+eléctrica, la resistencia eléctrica y la potencia eléctrica.</P>
+
+<P>La comprensión del comportamiento de estas magnitudes es pieza fundamental para el desarrollo
+de cualquier actividad relacionada con la electricidad, a continuación se detallará cada una de estas
+magnitudes:</P>
+
+
+</P>
+</div>
+
+<div class="div">
+<h2>Resistencia Eléctrica</h2>
+<P>Resistencia eléctrica es toda oposición que encuentra la corriente a su paso por un circuito eléctrico cerrado, atenuando o frenando el libre flujo de circulación de las cargas eléctricas o electrones.
+<P>Matemáticamente, la resistencia de cualquier material se puede calcular de acuerdo a la siguiente
+expresión:</P>
+<P>Donde;</P>
+<p>R: Resistencia del material [W]</P>
+<P>l: longitud del conductor [m]</P>
+<P>A: Área de la sección transversal del material [m2
+]</P>
+<P>P: Resistividad del material [W . m]</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='calculo-resistencia.png') }}" alt=electricidad></a>
+<p>La resistividad es la resistencia que ofrece un material a la corriente eléctrica, de longitud l y sección
+transversal unitaria de ese material.</P>
+<P>Si se trata de un conductor eléctrico:</P>
+
+<img class="imagendediv"  src="{{ url_for('static', filename='Resistividad_electrica.png') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tensión Eléctrica</h2>
+<P>La tensión eléctrica o diferencia de potencial es una magnitud física que cuantifica la diferencia de potencial eléctrico entre dos puntos. También se puede definir como el trabajo por unidad de carga ejercido por el campo eléctrico sobre una partícula cargada para moverla entre dos posiciones determinadas.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Ley de Coulomb</h2>
+<P>La magnitud de cada una de las fuerzas eléctricas con que interactúan dos cargas puntuales en reposo es directamente proporcional al producto de la magnitud de ambas cargas e inversamente proporcional al cuadrado de la distancia que las separa. Ley de Coulomb.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='coulomb.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Corriente Eléctrica</h2>
+<P>La corriente eléctrica es el flujo de carga eléctrica que recorre un material. Se debe al movimiento de las cargas en el interior del mismo. Al caudal de corriente se le denomina intensidad de corriente eléctrica.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Potencia Eléctrica</h2>
+<P>La potencia eléctrica es la proporción por unidad de tiempo, o ritmo, con la cual la energía eléctrica es transferida por un circuito eléctrico. Es decir, la cantidad de energía eléctrica entregada o absorbida por un elemento en un momento determinado.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='potencia-ele.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Ley de Ohm</h2>
+<P>La ley de Ohm, postulada por el físico y matemático alemán Georg Simon Ohm, es una ley básica de los circuitos eléctricos. Establece que la diferencia de potencial que aplicamos entre los extremos de un conductor determinado es proporcional a la intensidad de la corriente que circula por el citado conductor.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='ohm.jpg') }}" alt=electricidad></a>
+<img class="imagendediv"  src="{{ url_for('static', filename='Rueda_formulas_electricidad.png') }}" alt=electricidad></a>
+
+
+</P>
+</div>
+
+<div class="div">
+<h2>Circuito en Serie</h2>
+<P>Un circuito en serie es una configuración de conexión en la que los bornes o terminales de los dispositivos se conectan sucesivamente, es decir, el terminal de salida de un dispositivo se conecta a la terminal de entrada del dispositivo siguiente.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='circuitoserie.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+
+<P>En función de los dispositivos conectados en serie, el valor total o equivalente se obtiene con las siguientes ecuaciones:
+<img class="imagendediv"  src="{{ url_for('static', filename='ckto-serie.PNG') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Circuito en Paralelo</h2>
+<P>Un circuito paralelo es una conexión de dispositivos en la que los bornes o terminales de entrada de todos los dispositivos conectados coinciden entre sí, al igual que sus terminales de salida.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='circuitosparalelo.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Circuito Mixto</h2>
+<P>Para la solución de estos problemas se trata de resolver primero todos los elementos que se encuentran en serie y en paralelo para finalmente reducir a la un circuito puro, bien sea en serie o en paralelo.
+<img class="imagendediv"  src="{{ url_for('static', filename='mixto.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Ley de Kirchhoff</h1></p></div></center></div>
+
+<div class="div">
+
+<P>Las leyes de Kirchhoff están fundamentadas en la ley de la conservación de la energía, y permiten analizar las variables inherentes a los circuitos eléctricos. Ambos preceptos los enunció el físico prusiano Gustav Robert Kirchhoff a mediados de 1845, y son usadas en la actualidad en las ingenierías eléctrica y electrónica, para el cálculo de corriente y tensión.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Primera ley</h2>
+<P>La primera ley de Kirchhoff se fundamenta en la ley de la conservación de la energía; más específicamente, en el balance del flujo de corriente a través de un nodo en el circuito.
+<P>
+    Esta ley se aplica de igual forma en circuitos de corriente continua y alterna, todo fundamentado en la ley de la conservación de la energía, ya que la energía no se crea ni se destruye, solo se transforma.
+</P>
+<P>
+    Esta ley establece que la suma de todas las corrientes que ingresan a un nodo se iguala en magnitud con la suma de las corrientes que se expulsan de dicho nodo.
+</P>
+<P>
+    Por ende, la corriente eléctrica no puede aparecer de la nada, todo se fundamenta en la conservación de la energía. La corriente que ingresa a un nodo debe distribuirse entre los ramales de ese nodo. La primera ley de Kirchhoff puede expresarse matemáticamente de la siguiente forma:
+</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='primera-ley-1.PNG') }}" alt=electricidad></a>
+<P>
+    Es decir, la suma de las corrientes entrantes a un nodo es igual a la suma de las corrientes salientes.
+</P>
+<P>
+    El nodo no puede producir electrones ni eliminarlos deliberadamente del circuito eléctrico; es decir, el flujo total de electrones se mantiene constante y se distribuye a través del nodo.
+</P>
+<P>
+    Ahora bien, la distribución de las corrientes a partir de un nodo puede variar dependiendo de la resistencia a la circulación de la corriente que tenga cada derivación.
+</P>
+<P>
+    La resistencia se mide en ohmios [Ω], y en tanto mayor sea la resistencia a la circulación de corriente, menor será la intensidad de la corriente eléctrica que fluye a través de esa derivación.
+
+</P>
+<P>
+    Dependiendo de las características del circuito, y de cada uno de los componentes eléctricos que lo conforman, la corriente tomará diferentes caminos de circulación.
+</P>
+
+<img class="imagendediv"  src="{{ url_for('static', filename='primera-ley.png') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Segunda ley de Kirchhoff</h2>
+<P>La segunda ley de Kirchhoff indica que la suma algebraica de todos los voltajes en una malla o bucle cerrado debe ser igual a cero. Expresada matemáticamente, la segunda ley de Kirchhoff se resume de la siguiente forma:
+<img class="imagendediv"  src="{{ url_for('static', filename='segunda-ley-2.PNG') }}" alt=electricidad></a>
+<P>
+    El hecho de que se refiera a la suma algebraica implica el cuidado de las polaridades de las fuentes de energía, así como los signos de las caídas de tensión sobre cada componente eléctrico del circuito.
+</P>
+<P>
+    Por ende, al momento de aplicar esta ley hay que ser muy precavidos en el sentido de circulación de la corriente y, en consecuencia, con los signos de los voltajes contenidos dentro de la malla.
+</P>
+<P>
+    Esta ley está igualmente fundamentada en la ley de conservación de la energía, ya que se establece que cada malla es un camino conductor cerrado, en el cual no se genera ni se pierde potencial.
+</P>
+<P>
+    En consecuencia, la suma de todos los voltajes alrededor de este camino debe ser nula, para honrar al balance energético del circuito dentro del lazo.
+</P>
+<h2>Ley de conservación de la carga</h2>
+<P>
+    La segunda ley de Kirchhoff también obedece a la ley de conservación de la carga, ya que a medida que los electrones fluyen por un circuito, pasan a través de uno o varios componentes.
+</P>
+<P>
+    Estos componentes (resistencias, inductores, capacitores, etc.), ganan o pierden energía dependiendo del tipo de elemento. Lo anterior se debe a la elaboración de un trabajo debido a la acción de fuerzas eléctricas microscópicas.
+</P>
+<P>
+    La ocurrencia de una caída de potencial, se debe a la ejecución de un trabajo dentro de cada componente como respuesta a la energía suministrada por una fuente, bien sea en corriente continua o alterna.
+</P>
+<P>
+    De manera empírica —es decir, gracias a resultados obtenidos experimentalmente—, el principio de conservación de la carga eléctrica establece que este tipo de carga no se crea ni se destruye.
+</P>
+<P>
+    Cuando un sistema se ve sujeto a interactuar con campos electromagnéticos, la carga relacionada en una malla o bucle cerrado se mantiene en su totalidad.
+</P>
+<P>
+    Así, al sumar todos los voltajes en un lazo cerrado, considerando la tensión de la fuente generadora (si es el caso) y las caídas de tensión sobre cada componente, el resultado debe ser nulo.
+</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='segunda-ley.PNG') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

@@ -1,0 +1,379 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Automatismo Eléctrico</title>
+        <link class="icon" rel="icon" href="./static/icon.png">
+    </head>
+    <style type= "text/css">
+      /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('instalaciones') }}" class="a">Instalaciones Eléctricas</a>
+            <a href="{{ url_for('maquinas') }}" class="a">Máquinas Eléctricas</a>
+            <a href="{{ url_for('luminotecnia') }}" class="a">Luminotecnia</a>
+            <a href="{{ url_for('electrotecnia') }}" class="a">Electrotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+           <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+
+</header>
+}
+<div></div><center><div class="div"><p><h1>Automatismos</h1></p></div></center></div>
+
+
+<div class="div">
+
+<P>Un automatismo eléctrico es un conjunto de módulos cableados entre sí, formando un sistema de control único que permite realizar,
+sin la actuación del hombre, una serie de procesos o secuencias lógicas sobre un sistema de potencia.
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h1>Dispositivos comunes</h1></p></div></center></div>
+
+<div class="div">
+<h2>Pulsadores</h2>
+<P>Elementos mecánicos de cierre y apertura. Se dividen en “normalmente abiertos” (para la puesta en marcha o funcionamiento de las máquinas)
+o “normalmente cerrados” (hacen el efecto contrario, parar la maquinaria o el equipo).
+<img class="imagendediv"  src="{{ url_for('static', filename='pulsador.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Interruptores</h2>
+<P>Conectan o desconectan la maquinaria o las instalaciones. Se diferencian de los pulsadores en que se mantienen en la posición en la que han sido accionados.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Conmutadores</h2>
+<P>Dispositivos que permiten cambiar la dirección o interrumpir el paso de la corriente eléctrica en un circuito. Estos elementos, a diferencia de los interruptores, una vez han desconectado un circuito, conectan otro inmediatamente.
+<img class="imagendediv"  src="{{ url_for('static', filename='conmutador.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Finales de carrera</h2>
+<P>Son sensores de contacto que se sitúan al final de un recorrido o de un elemento móvil y que envían una señal cuando son activados, la cual puede ser utilizada para modificar el estado de un circuito.
+<img class="imagendediv"  src="{{ url_for('static', filename='final-de-carrera.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Termostato</h2>
+<P>Un termostato es el componente de un sistema de control simple que abre o cierra un circuito eléctrico en función de la temperatura.
+
+Su versión más simple consiste en una lámina metálica como la que utilizan los equipos de aire acondicionado para apagar o encender el compresor.
+<img class="imagendediv"  src="{{ url_for('static', filename='termostato.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Presostato</h2>
+<P>Un presostato, también conocido como interruptor de presión, es un aparato que cierra o abre un circuito eléctrico dependiendo de la lectura de presión de un fluido.
+<img class="imagendediv"  src="{{ url_for('static', filename='presostato.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Relés</h2>
+<P>Es el elemento básico del automatismo cableado. Se trata de un dispositivo electromecánico accionado por interruptores y/o sensores de diversos tipos (termostatos, detectores de movimiento, etc.).
+Está constituido por una bobina y un grupo de contactos que pueden ser abiertos o cerrados, cuya función es la de habilitar/desconectar circuitos cuando circula corriente por su bobina.
+<img class="imagendediv"  src="{{ url_for('static', filename='rele.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Temporizadores</h2>
+<P>Permiten automatizar en función del tiempo el encendido o apagado de maquinaria, electricidad, etc.
+<img class="imagendediv"  src="{{ url_for('static', filename='rele-temporizado.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Contactores</h2>
+<P>Su funcionamiento es similar al de los relés aunque se utilizan para habilitar circuitos con corrientes más elevadas. Otra diferencia es que tienen dos grupos de contactos, los principales y los contactos auxiliares.
+<img class="imagendediv"  src="{{ url_for('static', filename='contactor.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Variador de velocidad</h2>
+<P>Es un dispositivo o conjunto de dispositivos (mecánicos, hidráulicos, eléctricos o electrónicos) empleados para controlar la velocidad giratoria de maquinaria, especialmente de motores.
+<img class="imagendediv"  src="{{ url_for('static', filename='variador-de-velocidad.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Autómatas programables (PLC)</h2>
+<P>Los Autómatas Programables son los sistemas en los cuales las secuencias de las operaciones se definen mediante la programación. La programación puede ser sobre un Autómata Programable o PLC o también sobre un microcontrolador.
+
+La programación más estándar es la realizada mediante diagrama de contactos usando biestables programados para establecer las nuevas etapas y borrar las anteriores. Como un Autómata Programable de los más utilizados  podemos encontrar el  modelo S7-300 de Siemens.
+
+
+<img class="imagendediv"  src="{{ url_for('static', filename='automata.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Guardamotor</h2>
+<P>Un guardamotor es un interruptor magnetotérmico, especialmente diseñado para la protección de motores eléctricos. Este diseño especial proporciona al dispositivo una curva de disparo que lo hace más robusto frente a las sobreintensidades transitorias típicas de los arranques de los motores.
+<img class="imagendediv"  src="{{ url_for('static', filename='guardamotor.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Sistema de mando</h2>
+<P>Un sistema de mando es el conjunto de componentes eléctricos y mecánicos que tienen como objeto controlar las operaciones de una máquina como respuesta a una determinada acción, generada por un operador (por medio de un órgano de accionamiento) o por la propia máquina.
+<img class="imagendediv"  src="{{ url_for('static', filename='diagrama-mando.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Sistema de fuerza</h2>
+<P>Es el sistema por el cual se hace funcionar por el sistema de mando con la funcionalidad de hacer actuar componentes de contactos abiertos y cerrados
+para la acción de arranque de un motor.
+<img class="imagendediv"  src="{{ url_for('static', filename='diagrama-fuerza.PNG') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

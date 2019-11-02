@@ -1,0 +1,377 @@
+<!--esta es la página de electrónica muestra información de como es creada-->
+
+    {% block content %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Electrónica</title>
+</head>
+<style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ /*encabezado*/
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background:rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color:rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/fotoelectronica.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    background-color: white;
+}
+
+/*aside*/
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+.divfotos{
+    display: inline-block;
+
+}
+
+.capacitores{
+    display: block;
+    width: 30rem;
+    height: 20rem;
+    transform: scale(1);
+}
+</style>
+
+<body class="bodyy">
+    <main>
+ <header class="headere">
+     <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('analogica') }}" class="a">Electrónica Analógica</a>
+            <a href="{{ url_for('digital') }}" class="a">Electrónica Digital</a>
+            <a href="{{ url_for('potencia') }}" class="a">Electrónica de Potencia</a>
+          </nav>
+          <!--portada-->
+          <div>
+              <a href="{{ url_for('principal') }}"><img class="portada"  src="{{ url_for('static', filename='tu electronica.png') }}" alt=electronica></a>
+          </div>
+
+</header>
+
+<div class="div"><p><h1><center>Conceptos Básicos de Electrónica.</center></h1></p></div>
+
+
+<div class="div">
+<h2>¿Qué es la Electrónica?</h2>
+<P>
+    La electrónica es el estudio del comportamiento y control de los electrones por medio de componentes electrónicos.
+</P>
+</div>
+<div class="div">
+    <h2>Dispositivos Electrónicos:</h2>
+    <P>Los dispositivos electrónicos se dividen en dos grupos pasivos y no pasivos.</p>
+    <h3>Dispositivos Pasivos:</h3>
+    <p> son aquellos que no hacen cambios en las señales eléctricas, tienen otras funciones como bajar voltaje, protecciones al circuito.</p>
+    <h3>Dispositivos no Pasivos:</h3>
+    <p>son aquellos que realizan cambios en las señales eléctricas en sí podría hacer una transformación de la señal.</p>
+    <img class="imagendediv"  src="{{ url_for('static', filename='dispositivos.png') }}" alt=electronica>
+    </P>
+</div>
+<div class="div">
+    <h2>Algunos dispositivos.</h2>
+
+    <br>
+    <h3>Interruptor:</h3>
+    <P>Es un dispositivo de control de encendido y apagado, interrumpe el paso de la corriente.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='interreputor.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbinterruptor.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>Transformador:</h3>
+    <P>Solo es una bobina de cobre que nos permite disminuir la tensión en nuestro caso puede ser de 220V a 24V o menor de 24V.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='transformador.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbtransformador.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>LED:</h3>
+    <P>Diodo emisor de luz (LED), a como su nombre lo indica produce una iluminación al estar conectado a una fuente de corriente continua.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='led.png') }}" alt=led></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbled.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>Resistencia:</h3>
+    <P>No es nada más que un dispositivo que opone el paso de la corriente, no tiene polaridad.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='resistencia1.png') }}" alt=resistencia></div>
+   <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='resistencias.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>Fotorresistencia:</h3>
+    <P>Es un resistor sensible a la luz que incide en ella, a mayor luz menor su resistencia y a menor luz mayor resistencia.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='ldr.png') }}" alt=fotorresistencia></div>
+
+    </P>
+
+    <br>
+    <h3>Capacitor o filtro:</h3>
+    <P>son dispositivos que almacenan cargas eléctricas, algunos no tienen polaridad como es el capacitor de cerámica y mica, con excepción al electrolítico este tiene polaridad, si no es polarizado debidamente puede tener ruptura.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='filtroceramico.png') }}" alt=capacitor></div>
+   <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='filtro.png') }}" alt=capacitor></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbcapacitor.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <p>
+    <h3>Capacitores:</h3>
+    <div class="divfotos"><img class="capacitores"  src="{{ url_for('static', filename='capacitordemica.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitorcoaxial.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitordeceramica.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitordepapel.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitordetantalio.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitorelectrolitico.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitormarcha.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitormontajesuperficial.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacitorvariable.png') }}" alt=electronica></div>
+    <div class="divfotos"><img class="capacitores" src="{{ url_for('static', filename='capacittorajustable.png') }}" alt=electronica></div>
+    </p>
+
+    <br>
+    <h3>Transistores:</h3>
+    <P>Pueden controlar una corriente muy grande a partir de una más pequeña. Se encuentran muy comunes en los circuitos de audio y son de tipos PNP y NPN sus terminales se basan en emisor, colector y base.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='transistor.png') }}" alt=transistor></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simtransistorbjt.png') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>Diodo rectificador:</h3>
+    <P>Este dispositivo tiene un gran trabajo en los circuitos electrónicos ya que convierte la corriente alterna a corriente continua y también sirve para controlar en un solo sentido la corriente eléctrica.
+   <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbdiodo.png') }}" alt=electronica></div>
+   <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='diodorectificador.jpg') }}" alt=electronica></div>
+    </P>
+
+    <br>
+    <h3>Potenciómetros:</h3>
+    <P>Son nada más que resistencias variables, tiene un cursor con el cual se le hace movimiento y este a la vez varía su resistencia.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='potenciometro.png') }}" alt=potenciómetro></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbpotenciometro.png') }}" alt=electronica></div>
+    </P>
+    <br>
+    <h3>Fusibles:</h3>
+    <P>Son dispositivos de protección, es de gran importancia para proteger el circuito electrónico, cuando hay una sobre tensión el tiene un filamento que se derrite al calentarse y llegando a su vida útil protegiendo al resto de componentes.
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbfusible.png') }}" alt=electronica></div></P>
+
+    <br>
+    <h3>Diodo zéner:</h3>
+    <P>Son diodos que están diseñados para mantener un voltaje constante cuando su polarización es inversa, se conecta en parelelo
+    a la salida de la alimentación pero con polaridad invetida.
+   <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='zener.png') }}" alt=zéner></div>
+    <div class="divfotos"><img class="imagendediv"  src="{{ url_for('static', filename='simbzener.png') }}" alt=electronica></div>
+    </P>
+
+</div>
+
+
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+{% endblock %}
+</body>
+</html>

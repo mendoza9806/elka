@@ -1,0 +1,515 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Instalaciones Eléctricas</title>
+    </head>
+  <style type= "text/css">
+  /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('maquinas') }}" class="a">Máquinas Eléctricas</a>
+            <a href="{{ url_for('automatismo') }}" class="a">Automatismos</a>
+            <a href="{{ url_for('luminotecnia') }}" class="a">Luminotecnia</a>
+            <a href="{{ url_for('electrotecnia') }}" class="a">Electrotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+          <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+
+
+
+</header>
+
+<div></div><center><div class="div"><p><h1>Instalaciones Eléctricas</h1></p></div></center></div>
+
+<div class="div">
+<h2>Circuito eléctrico</h2>
+<P>Un circuito es una interconexión de componentes eléctricos que transporta corriente eléctrica a través de por lo menos una trayectoria cerrada. Un circuito lineal, que consta de fuentes, componentes lineales y elementos de distribución lineales, tiene la propiedad de la superposición lineal.
+<img class="imagendediv"  src="{{ url_for('static', filename='ckto-electrico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Conductores eléctricos</h2>
+<P>Un conductor eléctrico es un material que ofrece poca resistencia al movimiento de la carga eléctrica. Sus átomos se caracterizan por tener pocos electrones en su capa de valencia, por lo que no se necesita mucha energía para que estos salten de un átomo a otro.
+En electricidad, los conductores eléctricos están en forma de cables unifilares y multifilares, de cobre o de aluminio.
+<img class="imagendediv"  src="{{ url_for('static', filename='conductor-ele.jpg') }}" alt=electricidad></a>
+<img class="imagendediv"  src="{{ url_for('static', filename='codigo-colores-conductores.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Aislantes</h2>
+<P>Un aislante eléctrico es un material con escasa capacidad de conducción de la electricidad, utilizado para separar conductores eléctricos evitando un cortocircuito y para mantener alejadas del usuario determinadas partes de los sistemas eléctricos que de tocarse accidentalmente.
+El aislamiento eléctrico se produce cuando se cubre un elemento de una instalación eléctrica con un material que no es conductor de la electricidad, es decir, un material que resiste el paso de la corriente a través del elemento que alberga y lo mantiene en su desplazamiento a lo largo del semiconductor.
+
+La cinta aislante (conocida también como cinta aisladora o cinta de aislar) es un tipo de cinta adhesiva de presión usada principalmente para aislar empalmes de hilos y cables eléctricos. Este tipo de cinta es capaz de resistir condiciones de temperaturas extremas, corrosión, humedad y altos voltajes. La cinta está fabricada en material de PVC delgado, con un ancho generalmente de 14 mm; uno de los lados de la cinta está impregnado con un adhesivo. El PVC ha sido elegido por ser un material de bajo costo, flexible y tener excelentes propiedades de aislante eléctrico, aunque posee la desventaja de endurecerse con el tiempo y el calor.
+
+Puede fabricarse en varios colores, siendo el más común el negro.
+<img class="imagendediv"  src="{{ url_for('static', filename='cinta-electrica.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Interruptor Termomagnético</h2>
+<P>El interruptor termomagnético es un dispositivo que corta la corriente eléctrica de un circuito automáticamente.
+
+Actúa cuando la corriente sobrepasa el valor nominal establecido en las especificaciones técnicas del dispositivo.
+
+Su finalidad es proteger y dar seguridad a la instalación eléctrica ante la presencia de alguna falla.
+<img class="imagendediv"  src="{{ url_for('static', filename='termo.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Fusible</h2>
+<P>En la electricidad, se denomina fusible a un dispositivo constituido por un soporte adecuado y un filamento o lámina de un metal o aleación de bajo punto de fusión que se intercala en un punto determinado de una instalación eléctrica para que se funda (por efecto Joule) cuando la intensidad de corriente supere (por un cortocircuito o un exceso de carga) un determinado valor que pudiera hacer peligrar la integridad de los conductores de la instalación con el consiguiente riesgo de incendio o destrucción de otros elementos.
+<img class="imagendediv"  src="{{ url_for('static', filename='fusible.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Planos Eléctricos</h2>
+<P>Un esquema eléctrico es una representación gráfica de una instalación eléctrica o de parte de ella, en la que queda perfectamente definido cada uno de los componentes de la instalación y la interconexión entre ellos.
+<img class="imagendediv"  src="{{ url_for('static', filename='plano-electrico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tuberías Conduit</h2>
+<P>El tubo conduit se utiliza para proteger y enrutar el cableado eléctrico. Este conducto puede ser de diversos materiales, el PVC es uno de ellos.
+
+
+<img class="imagendediv"  src="{{ url_for('static', filename='conduit.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tubo conduit anillado greenfield o flexible.</h2>
+<P>Se debe utilizar en partes que no permiten la hechura de muchas curvas con un tipo de tubo rígido, ya que se amolda con facilidad; es muy útil en las instalaciones de llegada a los motores. Este tipo de tubo es el más idóneo para factorías por su resistencia mecánica a la presión, así como a los cambios climatológicos; se complementa con coples de tornillo, así como con conectores especiales que se atornillan a presión por un lado, siendo roscados por el lado opuesto.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='tubo-corrugado.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tubo conduit galvanizado de pared gruesa.</h2>
+<P>Se utiliza en cualquier trabajo por su calidad y resistencia, sobre todo en la industria en forma visible por su resistencia a la corrosión ambiental y también en jardinería, pues por su baño galvanizado puede ser enterrado; se recomienda usar pintura o impermeabilizante en las juntas con cople, pues esto lo sella perfectamente y evita que se cuele el agua.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='conduit-galvanizado.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Interruptor Diferencial</h2>
+<P>Un interruptor diferencial (ID), también conocido como RCD, RCCB o dispositivo diferencial residual (DDR), es un dispositivo electromecánico que se instala en las instalaciones eléctricas de corriente alterna con el fin de proteger a las personas de accidentes directos e indirectos provocados por el contacto con partes activas de la instalación (contacto directo) o con elementos sometidos a potencial debido, por ejemplo, a una derivación por falta de aislamiento de partes activas de la instalación (contacto indirecto). También protegen contra los incendios que pudieran provocar dichas derivaciones.
+
+Es un dispositivo de protección muy importante en toda instalación, tanto doméstica, como industrial, que actúa conjuntamente con la puesta a tierra de enchufes y masas metálicas de todo aparato eléctrico. De esta forma, el ID desconectará el circuito en cuanto exista una derivación o defecto a tierra mayor que su sensibilidad. Si no existe la conexión a tierra y se produce un contacto de un cable u elemento activo a la carcasa de una máquina, por ejemplo, el ID no se percatará hasta que una persona no aislada de tierra toque esta masa, entonces la corriente recorrerá su cuerpo hacia tierra provocando un defecto a tierra y superando ésta la sensibilidad del ID, que disparará protegiendo a la persona y evitando así su electrocución.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='interruptor-dif.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Centro de Carga</h2>
+<P>Un centro de carga es un tablero metálico que contiene una cantidad determinada de interruptores termo magnéticos, generalmente empleados para la protección y des-conexión de pequeñas cargas eléctricas y alumbrado. En el caso de que en el tablero se concentre exclusivamente interruptores para alumbrado, se conoce como "tablero de alumbrado"; si concentra otros tipos de cargas, se conoce como "tablero de fuerza"; en caso de que contenga interruptores tanto para fuerza como alumbrado se conocerá como "tablero de fuerza y alumbrado" o "tablero mixto".
+
+Los centros de carga pueden ser monofásico o trifásicos, razón por la cual pueden soportar interruptores termomagnéticos monopolares, bipolares o tripolares. De acuerdo con el número de circuitos, pueden contener 1, 2, 4, 6, 8, 12, 20, 30, 40, 42 y hasta 80 unidades.
+<img class="imagendediv"  src="{{ url_for('static', filename='centro-de-carga.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Puesta a Tierra</h2>
+<P>La puesta a tierra o conexión a tierra es la conexión de las superficies conductoras expuestas (gabinetes metálicos) a algún punto no energizado; comúnmente es la tierra sobre la que se posa la construcción, de allí el nombre. Al sistema de uno o varios electrodos que proveen la conexión a tierra se le llama «toma de tierra». Las puestas a tierra se emplean en las instalaciones eléctricas como una medida de seguridad. En caso de un fallo donde un conductor energizado haga contacto con una superficie conductora expuesta o un conductor ajeno al sistema hace contacto con él, la conexión a tierra reduce el peligro para humanos y animales que toquen las superficies conductoras de los aparatos. Dependiendo del sistema, el fallo puede provocar que se desconecte el suministro por un interruptor termomagnético, un interruptor diferencial o un dispositivo monitor del aislamiento.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='tierra.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Mufa</h2>
+<P>La Mufa es el punto de entrada de la línea eléctrica o telefónica a la casa o instalación.  La mufa es un tubo metálico de forma curveada cuyo extremo apunta hacia abajo para impedir que al llover, el agua de lluvia entre a la instalación.
+
+Desde la mufa se extiende un cable metálico al poste. Este cable permite cierta flexibilidad, pero al mismo tiempo mantener tensión entre el poste y la mufa.  El cable eléctrico o telefónico baja por el cable metálico a la mufa. Una vez asegurado el cable electrico o telefónico, este se introduce a traves de la boca de la mufa y se pasa por el tubo que está enrroscado con la mufa.
+Este tubo sirve como el conducto por el que baja el cable hasta el medidor de electricidad o la caja de telefonía.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='mufa.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Cajas de Distribución</h2>
+<P>Las cajas de distribución son accesorios que permiten mejor instalación de tuberías empotradas, distribuyendo el cableado a la necesidad de la instalación, para empalmar cables, instalar luces, etc.
+Hay hexagonales, cuadradas, 4x4, 4x2; su material va depende de la necesidad del cliente y la instalación: metálicas y de PVC.
+<img class="imagendediv"  src="{{ url_for('static', filename='cajas-de-distribucion.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Empalmes Eléctricos</h2>
+<P>La realización de empalmes es un tema importante en la formación de los electricistas (y electrónicos) ya que un empalme inadecuado o mal realizado puede hacer mal contacto y hacer fallar la instalación. Si la corriente es alta y el empalme está flojo se calentará. El chisporroteo o el calor producido por un mal empalme es una causa común a muchos incendios en edificios. Antes de trabajar en la instalación eléctrica de un edificio o de un equipo eléctrico/electrónico se debe tener la formación técnica necesaria.
+
+
+</P>
+</div>
+
+<div></div><center><div class="div"><p><h2>Tipos de Empalmes:</h2></p></div></center></div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Empalme Trezado:</h2>
+<P>(o de cola de ratón) es el más sencillo se emplea en las cajas de empalme, en el montaje de circuitos eléctricos, etc cuando los cables no están sujetos a movimientos ni tirones.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='cola-de-rata.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Empalme Doble Torsión</h2>
+<P>(o de prolongación) usado para prolongar un cable o reparar cables cortados. Especialmente en instalaciones aéreas como líneas de teléfono o tendidos eléctricos.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='prolongacion.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Empalme de Derivación</h2>
+<P>(o de unión) sirve para derivar uno o 2 cables de una línea principal. Puede ser simple o doble. La variante anudada se emplea cuando se necesita más seguridad.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='derivacion.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Enchufe o Tomacorriente</h2>
+<P>Un enchufe está formado por dos elementos: clavijas y tomacorriente, que se conectan uno al otro para establecer una conexión que permita el paso de la corriente eléctrica. Este dispositivo forma un circuito eléctrico al conectar la ficha con la base.
+Las formas de las clavijas pueden variar según la región o el país, ajustado a sus normas establecidas.
+<img class="imagendediv"  src="{{ url_for('static', filename='tomacorriente.png') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Sistema Monofásico</h2>
+<P>En ingeniería eléctrica, un sistema monofásico es un sistema de producción, distribución y consumo de energía eléctrica formado por una única corriente alterna o fase y por lo tanto todo el voltaje varía de la misma forma. La distribución monofásica de la electricidad se suele usar cuando las cargas son principalmente de iluminación y de calefacción, y para pequeños motores eléctricos. Un suministro monofásico conectado a un motor eléctrico de corriente alterna no producirá un campo magnético giratorio, por lo que los motores monofásicos necesitan circuitos adicionales para su arranque, y son poco usuales para potencias por encima de los 10 kW. El voltaje y la frecuencia de esta corriente dependen del país o región, siendo 115 y 230 los valores más extendidos para el voltaje (siendo dominante el de 230, debido a la recarga de vehículos eléctricos) y 50 o 60 Hercios para la frecuencia.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='monofasico.png') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Sistema Bifásico</h2>
+<P>En ingeniería eléctrica un sistema bifásico es un sistema de producción y distribución de energía eléctrica basado en dos tensiones eléctricas alternas desfasadas en su frecuencia 90º. En un generador bifásico, el sistema está equilibrado y simétrico cuando la suma vectorial de las tensiones es nula (punto neutro).
+
+<img class="imagendediv"  src="{{ url_for('static', filename='bifasico.png') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Sistema Trifásico</h2>
+<P>En ingeniería eléctrica, un sistema trifásico es un sistema de producción, distribución y consumo de energía eléctrica formado por tres corrientes alternas monofásicas de igual frecuencia y amplitud (y por consiguiente valor eficaz), que presentan una diferencia de fase entre ellas de 120° eléctricos, y están dadas en un orden determinado. Cada una de las corrientes monofásicas que forman el sistema se designa con el nombre de fase.
+Un sistema trifásico de tensiones se dice que es equilibrado cuando sus corrientes tienen magnitudes iguales y están desfasadas simétricamente.
+
+Cuando alguna de las condiciones anteriores no se cumple (corrientes diferentes o distintos desfases entre ellas), el sistema de tensiones está desequilibrado o más comúnmente llamado un sistema desbalanceado. Recibe el nombre de sistema de cargas desequilibradas, el conjunto de impedancias distintas que dan lugar a que por el receptor circulen corrientes de amplitudes diferentes o con diferencias de fase entre ellas distintas a 120°, aunque las tensiones del sistema o de la línea sean equilibradas o balanceadas.
+
+El sistema trifásico presenta una serie de ventajas, como son la economía de sus líneas de transporte de energía (hilos de menor sección que en una línea monofásica equivalente) y de los transformadores utilizados, así como su elevado rendimiento de los receptores, especialmente motores, a los que la línea trifásica alimenta con potencia constante.
+
+Los generadores utilizados en centrales eléctricas son trifásicos, dado que la conexión a la red eléctrica debe ser trifásica (salvo para centrales de poca potencia). La trifásica se usa masivamente en industrias, donde las máquinas funcionan con motores trifásicos.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='trifasico.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Neutro</h2>
+<P>El neutro es un conductor con potencial 0 o diferencia de potencial 0. Su función es precisamente crear un desequilibrio, una diferencia de potencial que permita la existencia de corriente eléctrica por el conductor de Fase. Sin el neutro no puede producirse la corriente eléctrica a no ser que la diferencia de potencial se genere utilizando directamente la tierra.
+
+En teoría en el neutro no hay tensión con respecto a tierra, por lo que en teoría no se produciría electrocución al tocarlo, sin embargo, jamás te fíes, no toques nunca ningún cable sin cerciorarse previamente con las herramientas pertinentes, de que no circula ninguna corriente.
+
+
+</P>
+</div>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

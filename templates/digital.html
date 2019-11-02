@@ -1,0 +1,556 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+             <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Electrónica Digital</title>
+    </head>
+<style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ /*encabezado*/
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background:rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color:rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada{
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/fotoelectronica.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    background-color: white;
+}
+
+/*aside*/
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+
+.divfotos{
+    display: inline-block;
+
+}
+</style>
+
+<body class="bodyy">
+    <main>
+ <header class="headere">
+     <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+
+
+
+         <!--divisiones de botones-->
+          <nav class="nave">
+            <a href="{{ url_for('analogica') }}" class="a">Electrónica Analógica</a>
+            <a href="{{ url_for('potencia') }}" class="a">Electrónica de Potencia</a>
+          </nav>
+
+          <div>
+              <a href="{{ url_for('electronica') }}"><img class="portada"  src="{{ url_for('static', filename='tu electronica.png') }}" alt=electronica></a>
+
+          </div>
+
+</header>
+
+<br>
+<br>
+<div class="div"><p><h1><center>Electrónica Digital.</center></h1></p></div>
+
+<div class="div">
+    <h2>¿Qué es la Electrónica Digital?</h2>
+    <P> La Electrónica Digital es la evolución de la Electrónica, en efecto, en el campo de semiconductores especializándose en Circuitos Integrados (IC), que pertenecen a dispositivos que se desconocían hace más de 10 años, hoy en día permite sustituir casi a la totalidad de dispositivos en una placa Electrónica.</P>
+    <P>Al trabajar con los IC lleva una reducción de costo monetario y espacio en una placa electrónica.</P>
+    <p>Esta asignatura se refiere a los circuitos digitales tales como automatismo y computadores, con la funcionalidad lógica.</p>
+</div>
+
+<div class="div">
+    <h2>¿Qué es un Circuito Integrado (IC)?</h2>
+<P>Es un conjunto de elementos (dispositivos) electrónicos, tanto dispositivos activos y no activos, agrupados e interconectados por la misma materia que lo contiene.
+<img class="imagendediv"  src="{{ url_for('static', filename='ic1.png') }}" alt=electronica>
+</P>
+<p>Existen dos tipos de IC, los de 14 y 16 patillas, estos tipos de circuitos integrados pertenecen a la lógica combinacional, no memorizan, evidentemente existen IC con números de patillas de 18, 17, 40. La de 40 patillas corresponden al microprocesador de 8 y 16 bit.</p>
+<p>Existen dos tecnologías de IC, tales como TTL y C-MOS.</p>
+<p>
+     <h1> Algunas Familias de IC.</h1>
+     <h4>C-MOS: construida por transistores de efecto de campo (MOSFET).
+     <br>TTL: Transistor transistor Lógico.
+     <br>RTL: Resistencia-Transistor Lógico.
+     <br>DTL: Diodos- Transistores Lógico.
+     <br>ECL: Es la más rápida disponible, de circuitos de tipo MSI, implementada con Tecnología Bipolar.
+     <br>IIL: Construidos con transistores de juntura bipolar de colector múltiple (BJT).
+</p>
+
+</div>
+
+<div class="div">
+   <p><h2>Compuerta OR</h2>
+ Es una sumadora que con cualquiera de sus entradas que esté 1, su salida siempre estará en 1. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbor.png') }}" alt=zéner></div>
+ <center><div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>OR</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>0</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>1</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta AND</h2>
+Es una multiplicadora y es necesario saber que en todas sus entradas se tenga 1 para que la salida sea 1 y en caso contrario de que falte alguna de sus entradas
+con este estado o no tenga si quiera una accionada, la salida no podrá cambiar de estado y permanecerá en 0.. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simband.png') }}" alt=zéner></div>
+ <center> <div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>AND</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>0</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>0</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta NOT</h2>
+ Es una inversora convierte el estado lógico si es uno se iguala a 0. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbnot.png') }}" alt=zéner></div>
+  <center><div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>NOT</caption>
+
+  <tr>
+   <th>A</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+ </tr>
+
+ </table></div>
+ </p>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta NOR</h2>
+ Es lo inverso de la OR, su salida será diferente. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbnor.png') }}" alt=zéner></div>
+ <center> <div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>NOR</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>1</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>0</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta NAND</h2>
+ Es la inversa de la AND, su salida es diferente y se le llaman AND negada. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbnand.png') }}" alt=zéner></div>
+  <center><div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>NAND</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>1</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>1</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta XOR</h2>
+ cuando su entradas son diferentes su salida valdrá 1, si son iguales valdrá 0. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbxor.png') }}" alt=zéner></div>
+  <center><div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>XOR</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>0</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>1</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<div class="div">
+   <p><h2>Compuerta XNOR</h2>
+ Es diferente a la XOR, si sus entradas son iguales valdrá 1, y si son diferentes valdrá 0. </p>
+ <div class="divfotos"> <img class="imagendediv"  src="{{ url_for('static', filename='simbxnor.png') }}" alt=zéner></div>
+  <center><div class="divfotos">
+ <table border="1" width="100%" cellpadding="20px">
+  <caption>XNOR</caption>
+
+  <tr>
+   <th>A</th>
+   <th>B</th>
+   <th>Q</th>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>0</td>
+   <td>1</td>
+  </tr>
+
+  <tr>
+   <td>0</td>
+   <td>1</td>
+   <td>0</td>
+ </tr>
+
+  <tr>
+   <td>1</td>
+   <td>0</td>
+   <td>0</td>
+ </tr>
+  <tr>
+   <td>1</td>
+   <td>1</td>
+   <td>1</td>
+ </tr>
+
+ </table></div>
+</div></center>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+
+
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

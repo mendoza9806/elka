@@ -1,0 +1,343 @@
+
+    {% block content %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Electrónica Analógica</title>
+    </head>
+<style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ /*encabezado*/
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background:rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color:rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada{
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/fotoelectronica.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+/*aside*/
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+
+.capacitores{
+    display: block;
+    width: 30rem;
+    height: 20rem;
+    transform: scale(1);
+}
+</style>
+
+</style>
+<body class="bodyy">
+    <main>
+ <header class="headere">
+     <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+         <!--divisiones de botones-->
+          <nav class="nave">
+            <a href="{{ url_for('digital') }}" class="a">Electrónica Digital</a>
+            <a href="{{ url_for('potencia') }}" class="a">Electrónica de Potencia</a>
+          </nav>
+
+          <div>
+                <a href="{{ url_for('electronica') }}"><img class="portada"  src="{{ url_for('static', filename='tu electronica.png') }}" alt=electronica></a>
+          </div>
+
+
+</header>
+<br>
+<br>
+<div class="div"><p><h1><center>Electrónica Analógica.</center></h1></p></div>
+
+
+
+<div class="div">
+<h2>¿Qué es la Electrónica Analógica?</h2>
+<P>Es lo anterior de digital, estudia los sistemas que varían de forma continua la electrónica, en esta rama no permanece los estados 0 y 1 ya que su valor puede ser cualquiera y no aumenta por medio de pulsos, es la clase importante que deberíamos saber ya que siempre veremos de todo tipo de dispositivos de acorde a su aplicación en esta rama.</P>
+</div>
+
+
+<div class="div">
+    <h2>Materiales semiconductores:</h2>
+    <P>Son una clase especial de elementos, cuya conductividad se encuentra en la de un buen conductor
+    y la de un aislante, las mayores partes de la sustancia sólidas presentan sus moláculas ordenadas en figuras
+    geométricas llamadas cristales, que son característica para cada una.</p>
+    <br>
+    <p>Los átomos que integran esas moléculas pueden estar unido en tres formas:</p>
+    <P>1-enlace ionicos: iones unidos por la naturaleza electroestástica.</p>
+    <P>2- Enlace covalente: cokmparten pares de electrones.</p>
+    <P>3- Enlace metálico: comparten los electrones libres entre todos los átomos.</p>
+    <p>Aquellos que están más próximo al núcleo tiene una misma energía que estan agrupados en la llamada banda saturada,
+    existen otra zonas separadas del núcleo llamada banda de valencia en las que los electrones son semi-libres,
+    y finalmente las zonas más alejada en que los electrones tienen energía suficiente,
+    para moverse por el cuerpo y formar la denominada banda de conducción.</p>
+    <p><h3>Conductores:</h3>
+    tienen solapadas la banda de valencia y la banda de conducción y por tantos los electrones pueden moverse por el cuerpo-</p>
+    <p><h3>Semiconductores:</h3>
+    la separación entre las bandas de 1eV aproximadamente, consiguiendo los electrones con relativa facilidad.</p>
+    <p><h3>Aislante:</h3>
+    la separación entre las bandas está solamente alterando el cuerpo los electrones, y no pasarían.</p>
+
+    <p>El Germanio (Ge) y el silicio (Si), pasan por un proceso llamado dopaje.
+    <br><br>El dopado es una forma de aumentar la conductividad de un semiconductor, el dopado se supone que deliveradamente se añade a otro átomo de impureza
+    a un cristal intrínseco  por modificar su conductividad eléctrica.
+    </p>
+    <p>Materiales intrínsecos: son aquellos que han hecho cuidadosamente refinados para reducir las cantidades de impureza
+    a un nivel muy bajo, escencialmente tan puros.</p>
+    <p>Materiales extrínsecos: pueden ser alterados insignificativamente através de impurezas a un material semiconductor relativamente puro.</p>
+</div>
+
+<div class="div">
+    <h2> Diodo Rectificador: </h2>
+    <p>Es un semiconductor que puede conducir una corriente solamente en un solo sentido y dejando pasar una sola parte ya sea
+    positivo o negativa.</p>
+    <p>Para cumplir su función de rectificar la señal, tiene que ser directamente polarizado.</p>
+
+
+</div>
+
+<div class="div">
+    <h2>Rectificador de media onda:</h2>
+    <p>La red más simple para el procesos de funciones variables en el tiempo, através de un ciclo completo definido por un periodo
+    (T), el valor promedio (la suma de las áreas de arriba y abajo) es cero, es llamada rectificador de media onda porque genera una oforma de onda
+    la cual tendrá un promedio de uso particular en el proceso de conversión de corriente alterna a corriente continua.</p>
+    <p>Es decir que de una señal de onda completa convertirá medio ciclo a corriente continua</p>
+    <img class="capacitores"  src="{{ url_for('static', filename='rectificadormediaonda.png') }}" alt=electronica>
+</div>
+
+<div class="div">
+    <h2>Rectificador de onda completa:</h2>
+    <p>Con este rectificador el nivel de corriente continua que tendrá apartir de la entrada senoidal puede mejorar en un 100%, también es reconocido
+    como rectificador tipo puente</p>
+    <img class="capacitores"  src="{{ url_for('static', filename='rectificadorondacompleta.png') }}" alt=electronica>
+</div>
+
+<div class="div">
+    <h2>Rectificador de onda completa con transformador de derivasión central:</h2>
+    <p>Es muy popular con solo dos diodos, pero requiere de un transformador para establecer la señal de entrada
+    através de cada sección secundaria del transformador</p>
+    <img class="capacitores"  src="{{ url_for('static', filename='rectificadorderivasioncentral.png') }}" alt=electronica>
+    </div>
+
+    <div class="div">
+    <h2>filtro de sección en π:</h2>
+    <p> Básicamente es el resultado de la unión de un filtro de entrada con condensador más un filtro LC, se caracteriza
+    por su energica acción de filtrado resultando su factor de ondulación, para rectificaciones de doble onda.</p>
+</div>
+
+
+<div class="div">
+    <h2>filtro de sección en L o LC:</h2>
+    <p>Compensa la disminusión de rizados que proporciona el filtro
+    de inductancia a medida que aumenta la corriente de carga, con el aumento de rizado, que se produce
+    en filtro de entrada con condensadores.</p>
+    </div>
+
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

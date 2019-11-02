@@ -1,0 +1,329 @@
+
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Mediciones Eléctricas</title>
+    </head>
+  <style type= "text/css">
+  /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('maquinas') }}" class="a">Máquinas Eléctricas</a>
+            <a href="{{ url_for('automatismo') }}" class="a">Automatismos</a>
+            <a href="{{ url_for('luminotecnia') }}" class="a">Luminotecnia</a>
+            <a href="{{ url_for('electrotecnia') }}" class="a">Electrotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+          <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+</header>
+
+
+<div></div><center><div class="div"><p><h1>Mediciones Eléctricas</h1></p></div></center></div>
+
+
+<div class="div">
+<h2>¿Qué es mediciones eléctricas?</h2>
+<P>Las mediciones eléctricas son los métodos, dispositivos y cálculos usados para medir cantidades eléctricas. La medición de cantidades eléctricas puede hacerse al medir parámetros eléctricos de un sistema.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tolerancia en los equipos de medición (incertidumbre)</h2>
+<P>Incertidumbre, en metrología, es una cota superior del valor de la corrección residual de la medida.
+</P>
+<P>También puede expresarse como el valor de la semi-amplitud de un intervalo alrededor del valor resultante de la medida, que se entiende como el valor convencionalmente verdadero. El carácter convencional, y no real de tal valor, es consecuencia de que el intervalo se entiende como una estimación adecuada de la zona de valores entre los que se encuentra el valor verdadero del mensurando, y que en términos tanto teóricos como prácticos es imposible de hallar con seguridad o absoluta certeza: teóricamente porque se necesitaría una sucesión infinita de correcciones, y en términos prácticos por no ser útil continuar con las correcciones una vez que la incertidumbre se ha reducido lo suficiente como para no afectar técnicamente al objeto al que va a servir la medida.
+</P>
+
+</div>
+
+<div class="div">
+<h2>Instrumentos de medición</h2>
+<P>Las mediciones eléctricas se realizan con aparatos especialmente diseñados según la naturaleza de la corriente; es decir, si es alterna, continua o pulsante. Los instrumentos se clasifican por los parámetros de voltaje, tensión e intensidad.
+<P>
+    De cualquier forma, la clasificación de los instrumentos de medición las detallaremos en el siguiente esquema:
+</P>
+<P>
+    De esta forma, podemos enunciar los instrumentos de medición como el <b>Amperímetro</b> o unidad de intensidad de corriente. El <b>Voltímetro</b> como la unidad de tensión, el <b>Ohmimetro</b> como la unidad de resistencia y los <b>Multimetros</b> como unidades de medición múltiples.
+
+</P>
+</P>
+</div>
+
+<div class="div">
+<h2>Voltimetro</h2>
+<P>Un voltímetro es un instrumento que sirve para medir la diferencia de potencial entre dos puntos de un circuito eléctrico.
+<P>Se mide en paralelo</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='voltimetro.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Amperimetro</h2>
+<P>El funcionamiento del amperímetro se basa en un principio del electromagnetismo que en su forma más simple nos indica que cualquier corriente eléctrica que atraviesa un hilo conductor produce un campo magnético alrededor del mismo, cuya fuerza depende de la intensidad de la corriente que circula.
+<P>
+    El amperímetro se instala siempre en serie con el elemento cuya intensidad se desea conocer. Al estar en serie con el circuito eléctrico es necesario, para que su influencia sea mínima, que su caída de tensión interna sea muy pequeña, por lo que su resistencia será también muy pequeña.
+
+</P>
+<img class="imagendediv"  src="{{ url_for('static', filename='amperimetro.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Óhmetro</h2>
+<P>Un ohmímetro es un instrumento para medir la resistencia eléctrica. Su diseño se compone de una pequeña batería para aplicar un voltaje a la resistencia de baja medida, para luego, mediante un galvanómetro, medir la corriente que circula a través de la resistencia.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='ohmetro.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Luxómetro</h2>
+<P>Un luxómetro (también llamado luxmetro o light meter) es un instrumento de medición que permite medir simple y rápidamente la iluminancia real y no subjetiva de un ambiente. La unidad de medida es el lux (lx). Contiene una célula fotoeléctrica que capta la luz y la convierte en impulsos eléctricos, los cuales son interpretados y representada en un display o aguja con la correspondiente escala de luxes.
+
+<img class="imagendediv"  src="{{ url_for('static', filename='luxometro.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+<div class="div">
+<h2>Telurómetro</h2>
+<P>Telurómetro o Telurímetro. Son equipos que miden la resistencia de puesta a tierra y la resistividad por el método de Wenner.
+<img class="imagendediv"  src="{{ url_for('static', filename='telurometro.jpg') }}" alt=electricidad></a>
+
+</P>
+</div>
+
+
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}

@@ -1,0 +1,350 @@
+
+    {% block content %}
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link class="icon" rel="icon" href="./static/icon.png">
+        <title>Electrónica de Potencia</title>
+    </head>
+ <style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ /*encabezado*/
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background:rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color:rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/fotoelectronica.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+/*aside*/
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100b%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+.capacitores{
+    display: block;
+    width: 50rem;
+    height: 35rem;
+    transform: scale(1);
+}
+</style>
+
+<body class="bodyy">
+    <main>
+ <header class="headere">
+        <!--este es la division de todos los contenidos.-->
+
+  <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+         <!--divisiones de botones-->
+          <nav class="nave">
+            <a href="{{ url_for('digital') }}" class="a">Electrónica Digital</a>
+            <a href="{{ url_for('analogica') }}" class="a">Electrónica Analógica</a>
+          </nav>
+          <!--portada-->
+          <div>
+               <a href="{{ url_for('electronica') }}"><img class="portada"  src="{{ url_for('static', filename='tu electronica.png') }}" alt=electronica></a>
+
+          </div>
+
+</header>
+
+<div style="width:100%;height:100%;overflow:auto;">
+    <br>
+    <br>
+<p><div class="div">
+<center><h1>Electrónica de Potencia</h1></center>
+</div></p>
+
+<div class="div">
+   <p>La electrónica de potencia nos está permitiendo confirmar y contolar grandes cantidades de potencia con una deficiencia siempre
+   decreciente por el enlace entre la electrónica de potencia que es el músculo fundamental a grandes empresas y la micro-electrónica que
+   es el cerebro que controla el sistema lógico para que puedan funcionar grandes máquinas y están surgiendos muchas aplicasiones potenciales
+   de la electrónica de potencia, la demanda de control  de energía eléctrica para los sistemas de impulsión con motores eléctricos y de controles
+   industriales.</p>
+</div>
+
+<div class="div">
+    <h2>¿Qué es la Electrónica de Potencia?</h2>
+    <P>La electrónica de potencia no es nada más que la aplicación que se le da a los dispositivos electrónicos, en éste caso para controlar y transformar voltajes y  corrientes a gran escala, controla la conducción de encendido y apagado de semiconductores de potencia.</p>
+    <p>Se basa principalmente en las capacidades de manejo y rapidez de conmutación de los semiconductores.</P>
+</div>
+
+<div class="div">
+    <p>Se desrrollaron varios tipos de dispositivos semiconductores de potencia que quedaron disponible en forma comercial
+    y se pueden dividir en tipos principales como es el diodo de potencia, tiristores, BJT, MOSFET, IGBT, SIT.</p>
+
+    <P><h2>Los tiristores se pueden dividir en 8 tipos:</h2>
+    <h3>Tiristor de comutación forzada.</h3>
+    <h3>Tiristor comutado por línea.</h3>
+    <h3>Tiristor desactivado por compuertas.</h3>
+    <h3>Tiristor de inducción estático.</h3>
+    <h3>Tiristor desactivado con asistencia de compuerta.</h3>
+    <h3>Rectificador controlado por silicio foto-activo</h3>
+    <h3>Tiristores controlados por MOS.</h3>
+    <h3>Tiristores de conducción inversa.</h3>
+    </P>
+</div>
+
+
+<div class="div">
+    <h2>Tipos de semiconductores de potencia:</h2>
+    <h3>Diodos de potencia:</h3>
+    <p>Los diodos de uso general, estan de alta velocidad, los de recuperación rápida y schottky, un diodo tiene dos terminales: ánodo y cátodo.</p>
+    <h3>Diodos schottky:</h3>
+    <P>Tienen un voltaje bajo de estado activo y un tiempo de recuperación muy pequeño típicamente en nanosegundos, la corriente de fuga aumenta con el voltaje y sus especificaciones se limitan a 100V y 300A.</p>
+    <h3>MOSFET de potencia:</h3>
+    <p>Transistor de efecto de campo metal-óxido semiconductor (MOSFET), se utilizan en convertidores de potencia de alta velocidad y están disponible en una especificación de relativamente poca potencia en rango de 1,000V, 50A, en un rango de frecuencia de varios de decenas de KHz.</p>
+    <h3>IGBT:</h3>
+    <p>Transistor bipolar de puerta aislada (IGBT), son transistores de potencia controlados por voltaje, por naturaleza, son más rápido que los BJT, son adecuados para altos voltajes, altas corriente y frecuencia hasta 20KHz, están disponibles hasta 1,200V a 400A.</p>
+    <h3>SITH:</h3>
+    <p> Transistor de inducción estática (SITH), es un dispositivo de alta potencia y de alta frecuencia, es similar al transistor de efecto de campo de juntura (JFET), tiene una capacidad de potencia de bajo ruido, baja distorsión y alta frecuencia de audio, las especificaciones de uso de corriente y voltaje de los SIT pueden ser hasta 1,200V, 300A y la velocidad puede ser tan alta como los 100KHz.</p>
+    <h3>TRIAC:</h3>
+    <p>Tríodo para corriente alterna (TRIAC), son similares a dos transistores conectados en inversa, paralelo con una sola terminal de compuerta, el flujo de corriente se puede controlar en cualquier dirección.</p>
+    <h3>GTO:</h3>
+    <p>Tiristor de apagado por compuerta (GTO), al igual que los SITH se activa mediante la aplicación de un pulso breve positivo a las compuertas y se desactivan mediante un pulso breve negativo. <br><br>
+    <img class="capacitores" src="{{ url_for('static', filename='semiconductoresdepotencia.png') }}" alt=electronica></p>
+</div>
+
+<div class="div">
+    <h2>Los circuitos electrónicos de potencia se pueden clasificar en:</h2>
+    <h3>1.- Rectificadores de diodos.</h3>
+    <h3>2.- Convertidores de CA - CD. (CA = Corriente Alterna, CD = Corriente Directa).</h3>
+    <h3>3.- Convertidores de AC - AC.</h3>
+    <h3>4.- Convertidores de DC - DC.</h3>
+    <h3>5.- Convertidores de DC - AC.</h3>
+    <h3>6.- Interruptor Estático.</h3>
+    <br>
+    <h2>Rectificadores de diodos:</h2>
+    <p>Es aquel que convierte el voltaje de corriente alterna a corriente directa, las entradas podrían ser tanto monofásicos y trifásicos.</p>
+    <br>
+    <h2>Convertidores de AC - DC:</h2>
+    <p>Es un circuito convertidor monofásico con dos tiristores conmutados naturales, el voltaje promedio de salida se puede controlar variando el tiempo de conducción de los tiristores o el ángulo alfa del retardo del disparo,
+    la entrada de voltaje puede ser monofásica o trifásica, también se les llama rectificadores controlados.
+    <img class="capacitores" src="{{ url_for('static', filename='ca-cd.png') }}" alt=electronica></p>
+    <br>
+    <h2>Convertidores de AC - AC:</h2>
+    <p>son utilizados para obtener un voltaje variable de corriente alterna con una fuente fija de AC y un convertidor monofásico con TRIAC, también se les llama controladores de voltaje de AC.
+        <img class="capacitores" src="{{ url_for('static', filename='ca-ca.png') }}" alt=electronica>
+    </p>
+    <br>
+    <h2>Convertidores de DC - DC:</h2>
+    <p>Suelen ser reguladores de conmutación, dando a su salida una tensión regulada, la mayoría de las veces con limitación de corriente. Se tiende a utilizar frecuencias de conmutación cada vez más elevadas porque permiten reducir la capacidad de los condensadores, con el consiguiente beneficio de volumen, peso y precio.
+      <br>  <img class="capacitores"  src="{{ url_for('static', filename='cd-cd.png') }}" alt=electronica>
+    </p>
+    <br>
+    <h2>Convertidores de DC - AC:</h2>
+    <p>Se les llama inversoreses, transforma una tensión de entrada de corriente continua a una tensión simétrica de salida (senoidal, cuadrada o triangular) de corriente alterna.
+       <br> <img class="capacitores" src="{{ url_for('static', filename='cd-ca.png') }}" alt=electronica></p>
+    </p>
+    <br>
+    <h3>Interruptores estático:<h3>
+     <p>la acción de conmutación un convertidor debe ser efectuada por un dispositivo de potencia, la elección de determinado
+     dispositivo dependerá del voltaje, corriente y rapidez del conversor.    <br>
+     <div class="divfotos"><img  src="{{ url_for('static', filename='interruptoresde.png') }}" alt=electronica></div></p>
+
+</div>
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>.
+</main>
+{% endblock %}
+    </body>
+    </html>
+

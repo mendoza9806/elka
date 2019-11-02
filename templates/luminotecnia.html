@@ -1,0 +1,328 @@
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Luminotecnia</title>
+        <link class="icon" rel="icon" href="./static/icon.png">
+    </head>
+   <style type= "text/css">
+ /*principal*/
+    html, body, *, *:: after, *:: before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headere {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: .25rem .25rem;
+    width: 100%;
+    background: rgba(38,47,29,0.4);
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+
+}
+
+.a {
+    display: inline-block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: rgba(113,105,80,0.9);
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+}
+
+
+.portada {
+    display: block;
+    width: 5rem;
+    height: 3rem;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+}
+
+
+.bodyy {
+    background:url(../static/Fondo_electricidad.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.buscador {
+    position: relative;
+}
+
+.div {
+    background-color: rgba(4,10,113,0.4);
+    color:white;
+    margin: 20px;
+    padding: 20px 20px;
+    border: 3px;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.imagendediv {
+    display: block;
+    width: 20rem;
+    height: auto;
+    transform: scale(1);
+    transition: transform .5s;
+    border-radius: 14px;
+    margin: auto;
+}
+body {
+    font-family: "Lato", sans-serif;
+    transition: .5s;
+
+}
+/*fondo de aside*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(174,171,180,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+
+    }
+
+
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+
+}
+
+/*pie del sitio*/
+.footerr{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(38,47,29,0.4);
+  color: white;
+  padding-top: 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.footerdiv{
+
+    display: block;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    padding: .25rem .25rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    margin:3px;
+
+}
+.code{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1);
+
+}
+</style>
+<body class="bodyy">
+    <main>
+  <header class="headere">
+      <!--este es la division de todos los contenidos.-->
+       <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{{ url_for('principal') }}">Principal.</a>
+          <a href="{{ url_for('electronica') }}">Electrónica.</a>
+          <a href="{{ url_for('analogica') }}">Electrónica Analógica.</a>
+          <a href="{{ url_for('digital') }}">Electrónica Digital.</a>
+          <a href="{{ url_for('potencia') }}">Electrónica de Potencia.</a>
+          <a href="{{ url_for('electricidad') }}">Electricidad.</a>
+          <a href="{{ url_for('instalaciones') }}">Instalaciones Eléctricas.</a>
+          <a href="{{ url_for('maquinas') }}">Máquinas Eléctricas.</a>
+          <a href="{{ url_for('automatismo') }}">Automatismos.</a>
+          <a href="{{ url_for('luminotecnia') }}">Luminotecnia.</a>
+          <a href="{{ url_for('electrotecnia') }}">Electrotecnia.</a>
+          <a href="{{ url_for('medicion') }}">Equipos de medición.</a>
+          <a href="{{ url_for('nosotros') }}">Sobre nosotros.</a>
+         <a href=""></a>
+         <a href=""></a>
+         </div>
+         <div id="main">
+         <span style="font-size:20px; color:white; cursor: pointer" onclick="openNav()">&#9776; Abrir </span>
+         </div>
+         <script>
+         function openNav() { document.getElementById("mySidenav") .style.width="350px";
+         }
+         function closeNav() { document.getElementById("mySidenav") .style.width = "0";
+
+         }
+         </script>
+
+
+         <!--divisiones de botones-->
+          <nav class="">
+            <a href="{{ url_for('instalaciones') }}" class="a">Instalaciones Eléctricas</a>
+            <a href="{{ url_for('maquinas') }}" class="a">Máquinas Eléctricas</a>
+            <a href="{{ url_for('automatismo') }}" class="a">Automatismos</a>
+            <a href="{{ url_for('electrotecnia') }}" class="a">Electrotecnia</a>
+            <a href="{{ url_for('medicion') }}" class="a">Equipos de medición</a>
+          </nav>
+           <div>
+                <a href="{{ url_for('electricidad') }}"><img class="portada"  src="{{ url_for('static', filename='tu electricidad.png') }}" alt=electronica></a>
+          </div>
+
+</header>
+
+<div></div><center><div class="div"><p><h1>Luminotecnia</h1></p></div></center></div>
+
+
+<div class="div">
+<h2>¿Qué es Luminotecnia?</h2>
+<P>La luminotecnia es la técnica que estudia las distintas formas de producción de la luz, así como su control y aplicación para fines específicos. De manera técnica, la luz es una forma de energía que forma parte del espectro electromagnético visible para el ojo humano.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Flujo luminoso</h2>
+<P>Flujo luminoso es la cantidad total de iluminación emitida por una fuente de luz en una unidad de tiempo, la unidad de medida es el lumen (lm). Se utiliza para indicar la cantidad de luz manifestada en una superficie o para señalar la reproducción luminosa de una fuente. Cuando la fuente de luz es una lámpara el flujo luminoso no se reparte de manera uniforme. El flujo luminoso Փ es un índice representativo de la potencia luminosa de una fuente de luz. Փ = lumen (lm). Ejemplos de flujo luminoso.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Eficacia luminosa</h2>
+<P>La eficacia luminosa describe el rendimiento de una lámpara. Se expresa mediante la relación del flujo luminoso entregado, en lumen y la potencia consumida, en vatios. El valor teórico máximo alcanzable con una conversión total de la energía a 555 nm sería 683 lm/W. Las eficacias luminosas realmente alcanzables varían en función del manantial de luz, pero quedan siempre por debajo de este valor ideal.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Intensidad luminosa</h2>
+<P>La intensidad luminosa de una fuente de luz en una dirección dada, es la relación que existe entre el flujo luminoso contenido en un ángulo sólido cualquiera, cuyo eje coincida con la dirección considerada y el valor de dicho ángulo sólido expresado en estereoradianes. Su unidad es la candela (cd).
+
+</P>
+</div>
+
+<div class="div">
+<h2>Iluminancia</h2>
+<P>La iluminancia es un índice representativo de la densidad del flujo luminoso sobre una superficie. Se define como la relación entre el flujo luminoso que incide sobre una superficie y el tamaño de esta superficie. A su vez la iluminancia no se encuentra vinculada a una superficie real, puede ser determinada en cualquier lugar del espacio. La iluminancia se puede deducir de la intensidad luminosa. Al mismo tiempo disminuye la iluminancia con el cuadrado de la distancia de la fuente de luz (ley de la inversa del cuadrado de la distancia). Su unidad es el lux.
+</P>
+</div>
+
+<div class="div">
+<h2>Luminancia</h2>
+<P>Mientras que la iluminancia nos describe la potencia luminosa que incide en una superficie, vemos que la luminancia nos describe la luz que procede de esa misma superficie. A su vez dicha luz puede ser procedente de la superficie misma (p.ej. en el caso de la luminancia de lámparas y luminarias). También vemos que la luminancia se encuentra definida como la relación entre la intensidad luminosa y la superficie proyectada sobre el plano perpendicularmente a la dirección de irradiación. Pero es posible que la luz sea reflejada o transmitida por la superficie. En el caso de materiales que reflejan en forma dispersa (mateados) y que transmiten en forma dispersa (turbios), es posible averiguar la luminancia a base de la iluminancia y el grado de reflexión (reflectancia) o transmisión (transmitancia). La luminosidad está en relación con la luminancia; no obstante, la impresión verdadera de luminosidad está bajo la influencia del estado de adaptación del ojo, del contraste circundante y del contenido de informac
+
+
+</P>
+</div>
+
+<div class="div">
+<h2>Curvas fotométricas</h2>
+<P>"Las curvas fotométricas son gráficas que marcan la distribución espacial de la luz referida en un plano cartesiano cuyas variables son la distancia y la intensidad luminosa. También se le llama distribución luminosa."
+<P>
+    La distribución de las intensidades luminosas emitidas por una lámpara tipo standard, la mostraríamos de una forma general, para un flujo lumionso de 1000 lúmenes. El volumen determinado por los vectores que representan las intensidades luminosas en todas las direcciones, resulta ser simétrico con respecto al eje Y-Y’; es como una figura de revolución engendrada por la curva fotométrica que gira alrededor del eje Y-Y’.
+
+</P>
+
+</P>
+</div>
+
+
+<div class="div">
+<h2>Ley inversa de cuadrados</h2>
+<P>Ley inversa de cuadrados. Se ha comprobado que las iluminancias producidas por las fuentes luminosas disminuyen inversamente con el cuadrado de la distancia desde el plano a iluminar a la fuente. Esta ley se cumple cuando se trata de una fuente puntual de superficies perpendiculares a la dirección del flujo luminoso y cuando la distancia de la luminaria es cinco veces mayor a la dimensión de la luminaria.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Ley del coseno</h2>
+<P>Ley del coseno Cuando la superficie no es perpendicular a la dirección de los rayos luminosos, la ecuación del nivel de iluminación hay que multiplicarla por el coseno del ángulo ð que forman con la normal a la superficie con la dirección de los rayos luminosos.
+
+</P>
+</div>
+
+<div class="div">
+<h2>Tabla lúmenes lámparas</h2>
+<P>
+<img class="imagendediv"  src="{{ url_for('static', filename='tabla-lumenes-lamparas.jpg') }}" alt=electronica></a>
+
+</P>
+</div>
+
+
+
+<!--pie de pagina-->
+<footer class="footerr">
+    <div class="footerdiv">
+    <br>
+        <p><h4>
+            Este proyecto es para principiantes
+<br>Elaborado por:
+<br>Tec.José Campbell
+<br>Tec.Eddy Campbell
+        </h4></p>
+    </div>
+
+<div class="footerdiv">
+    <br>
+    <center>
+    <p>
+    <h4>Créditos</h4>
+    <h3>Code-Fundación Uno</h3>
+    <img class="code" src="{{ url_for('static', filename='code.png') }}" alt=code>
+    </p>
+    </center>
+</div>
+
+</footer>
+</main>
+
+    </body>
+    </html>
+
+{% endblock %}
